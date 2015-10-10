@@ -1,0 +1,67 @@
+一，基础命令
+
+fangyong   980897902@qq.com
+安装好后，运行 git Bash
+
+mkdir D:\gitTest
+cd D:\gitTest
+
+$ git config --global user.name "fangyong"
+$ git config --global user.email "980897902@qq.com"
+
+$ git init
+
+$ git add readme.txt   告诉Git，把文件添加到仓库，实际上就是把文件修改添加到暂存区
+
+$ git commit -m "wrote a readme file"   告诉Git，把文件提交到仓库，实际上就是把暂存区的所有内容提交到当前分支，只负责把暂存区的修改提交了，
+
+$ git status  查看暂存区是否是干净的
+
+$ git diff readme.txt    顾名思义就是查看difference
+
+修改后
+$ git add readme.txt
+$ git commit -m "add  somethings "
+
+git log   令显示从最近到最远的提交日
+
+ git reset --hard HEAD^
+用HEAD表示当前版本
+上一个版本就是HEAD^
+上上一个版本就是HEAD^^
+HEAD~100前100个版本
+
+git reset --hard 3628164    回到指定的版本，可以是之前的也可以是之后的
+
+git reflog查看命令历史，以便确定要回到未来的哪个版本
+
+cat readme.txt  查看内容
+
+git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+--很重要，没有--，就变成了“切换到另一个分支”的命令
+
+用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+
+$ rm test.txt  $  git commit  删除文件
+
+
+
+二、GitHub
+只要注册一个GitHub账号，就可以免费获得Git远程仓库
+fangyong123
+fy971676038
+
+GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。
+
+
+将本地git库推送的gitHub中
+$ git remote add origin git@github.com:fangyong123/gitTest.git
+输入yes
+git push -u origin master第一次推送master分支的所有内容
+每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+将gitHub下载到本地git库
+$ git clone git@github.com:michaelliao/gitskills.git

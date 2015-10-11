@@ -64,4 +64,4 @@ git push -u origin master第一次推送master分支的所有内容
 每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
 将gitHub下载到本地git库
-$ git clone git@github.com:michaelliao/gitskills.git
+$ git clone git@github.com:fangyong123/gitTest.git

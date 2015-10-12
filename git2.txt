@@ -66,6 +66,9 @@ git push -u origin master第一次推送master分支的所有内容
 将gitHub下载到本地git库
 $ git clone git@github.com:fangyong123/gitTest.git
 
+修改其人的项目，首先要Fork把项clone到自己的仓库，再远程下到本地，修改提交，然后在Github中pull request一下
+
+
 三、分支
 
 你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。

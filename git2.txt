@@ -72,7 +72,7 @@ $ git clone git@github.com:fangyong123/gitTest.git
 要General中配置Git路径，
 然后设置Remote中的URL，pushURL,Putty,URL 和pushURL都是https://github.com/fangyong123/gitTest2类似的http格式，Putty是用TortoiseGit中puttygen.exe生成的.ppk格式的密钥路径，然后点击"Add New/Save"即可使用
 最后要修改network的SSH Client的路径指向git\bin中ssh.exe
-即可pull下载\push上传到github
+即可在本地提交后再pull下载\push上传到github
 
 三、分支
 

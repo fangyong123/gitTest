@@ -1,7 +1,7 @@
-һ����������
+一，基础命令
 
 fangyong   980897902@qq.com
-��װ�ú����� git Bash
+安装好后，运行 git Bash
 
 mkdir D:\gitTest
 cd D:\gitTest
@@ -11,85 +11,143 @@ $ git config --global user.email "980897902@qq.com"
 
 $ git init
 
-$ git add readme.txt   ����Git�����ļ����ӵ��ֿ⣬ʵ���Ͼ��ǰ��ļ��޸����ӵ��ݴ���
+$ git add readme.txt   告诉Git，把文件添加到仓库，实际上就是把文件修改添加到暂存区
 
-$ git commit -m "wrote a readme file"   ����Git�����ļ��ύ���ֿ⣬ʵ���Ͼ��ǰ��ݴ��������������ύ����ǰ��֧��ֻ������ݴ������޸��ύ�ˣ�
+$ git commit -m "wrote a readme file"   告诉Git，把文件提交到仓库，实际上就是把暂存区的所有内容提交到当前分支，只负责把暂存区的修改提交了，
 
-$ git status  �鿴�ݴ����Ƿ��Ǹɾ���
+$ git status  查看暂存区是否是干净的
 
-$ git diff readme.txt    ����˼����ǲ鿴difference
+$ git diff readme.txt    顾名思义就是查看difference
 
-�޸ĺ�
+修改后
 $ git add readme.txt
 $ git commit -m "add  somethings "
 
-git log   ����ʾ���������Զ���ύ��
+git log   令显示从最近到最远的提交日
 
  git reset --hard HEAD^
-��HEAD��ʾ��ǰ�汾
-��һ���汾����HEAD^
-����һ���汾����HEAD^^
-HEAD~100ǰ100���汾
+用HEAD表示当前版本
+上一个版本就是HEAD^
+上上一个版本就是HEAD^^
+HEAD~100前100个版本
 
-git reset --hard 3628164    �ص�ָ���İ汾��������֮ǰ��Ҳ������֮���
+git reset --hard 3628164    回到指定的版本，可以是之前的也可以是之后的
 
-git reflog�鿴������ʷ���Ա�ȷ��Ҫ�ص�δ�����ĸ��汾
+git reflog查看命令历史，以便确定要回到未来的哪个版本
 
-cat readme.txt  �鿴����
+cat readme.txt  查看内容
 
-git checkout -- readme.txt��˼���ǣ���readme.txt�ļ��ڹ��������޸�ȫ�����������������������
-һ����readme.txt���޸ĺ�û�б��ŵ��ݴ��������ڣ������޸ľͻص��Ͱ汾��һģһ����״̬��
-һ����readme.txt�Ѿ����ӵ��ݴ������������޸ģ����ڣ������޸ľͻص����ӵ��ݴ������״̬��
-��֮������������ļ��ص����һ��git commit��git addʱ��״̬��
---����Ҫ��û��--���ͱ���ˡ��л�����һ����֧��������
+git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+--很重要，没有--，就变成了“切换到另一个分支”的命令
 
-������git reset HEAD file���԰��ݴ������޸ĳ�������unstage�������·Żع�����
+用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
 
-$ rm test.txt  $  git commit  ɾ���ļ�
+$ rm test.txt  $  git commit  删除文件
 
 
 
-����GitHub
-ֻҪע��һ��GitHub�˺ţ��Ϳ�����ѻ��GitԶ�ֿ̲�
+二、GitHub
+只要注册一个GitHub账号，就可以免费获得Git远程仓库
 fangyong123
 fy971676038
 
-GitHub���������Ӷ��Key���ٶ��������ɵ��ԣ���һ����ڹ�˾�ύ��һ����ڼ����ύ��ֻҪ��ÿ̨���Ե�Key�����ӵ�GitHub���Ϳ�����ÿ̨��������GitHub�����ˡ�
+GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。
 
 
-������git�����͵�gitHub��
+将本地git库推送的gitHub中
 $ git remote add origin git@github.com:fangyong123/gitTest.git
-����yes
-git push -u origin master��һ������master��֧����������
-ÿ�α����ύ��ֻҪ�б�Ҫ���Ϳ���ʹ������git push origin master���������޸ģ�
+输入yes
+git push -u origin master第一次推送master分支的所有内容
+每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
-��gitHub���ص�����git��
+将gitHub下载到本地git库
 $ git clone git@github.com:fangyong123/gitTest.git
 
-������֧
+三、分支
 
-�㴴����һ���������Լ��ķ�֧�����˿���������������ԭ���ķ�֧�������������������Լ��ķ�֧�ϸɻ���ύ���ύ��ֱ��������Ϻ���һ���Ժϲ���ԭ���ķ�֧�ϣ��������Ȱ�ȫ���ֲ�Ӱ����˹�����
+你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
 
-��Git������֧������֧����master��֧��HEAD�ϸ���˵����ָ���ύ������ָ��master��master����ָ���ύ�ģ����ԣ�HEADָ��ľ��ǵ�ǰ��֧��
+在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
 
-$ git checkout -b dev       ���Ǵ���dev��֧��Ȼ���л���dev��֧��
-git checkout�������-b������ʾ�������л����൱�������������
+$ git checkout -b dev       我们创建dev分支，然后切换到dev分支：
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
 
-��git branch����鿴��ǰ��֧��
+用git branch命令查看当前分支：
 
-�޸��ύ$ git add readme.txt    $ git commit -m "branch test"
-dev��֧�Ĺ�����ɣ����ǾͿ����л���master��֧
+修改提交$ git add readme.txt    $ git commit -m "branch test"
+dev分支的工作完成，我们就可以切换回master分支
 $ git checkout master
 
-��dev��֧�Ĺ����ɹ��ϲ���master��֧��
+把dev分支的工作成果合并到master分支上
 $ git merge dev
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward
+$ git merge --no-ff -m "merge with no-ff" dev
 
-�鿴��֧��git branch
-������֧��git branch <name>
-�л���֧��git checkout <name>
-����+�л���֧��git checkout -b <name>
-�ϲ�ĳ��֧����ǰ��֧��git merge <name>
-ɾ����֧��git branch -d <name>
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
 
-Git��<<<<<<<��=======��>>>>>>>��ǳ���ͬ��֧�����ݣ������޸����º󱣴�
-��git log --graph������Կ�����֧�ϲ�ͼ
+
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改如下后保存
+用git log --graph命令可以看到分支合并图
+
+修复bug:
+$ git stash   可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。
+首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：
+修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：
+Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：
+    一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+    另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+再用git stash list查看，就看不到任何stash内容了
+你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：$ git stash apply stash@{0}
+
+查看远程库的信息，用git remote
+用git remote -v显示更详细的信息
+
+把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+$ git push origin master
+$ git push origin dev
+
+创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支
+$ git checkout -b dev origin/dev
+指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
+$ git branch --set-upstream dev origin/dev
+先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，
+$ git pull
+$ git commit -m "merge & fix hello.py"
+$ git push origin dev
+
+
+
+四、标签
+Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。
+
+签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错
+
+命令git tag <name> <commit id>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+git tag -a <tagname> -m "blablabla..."可以指定标签信息
+git tag -s <tagname> -m "blablabla..."可以用PGP签名标签
+用命令git show <tagname>可以看到PGP签名信息
+命令git tag可以查看所有标签
+
+如果标签打错了，也可以删除 $ git tag -d v0.1
+如果要推送某个标签到远程，使用命令git push origin <tagname>
+如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除
+命令git push origin --tags可以推送全部未推送过的本地标签；
+然后，从远程删除。删除命令也是push，但是格式如 $ git push origin :refs/tags/v0.9
+
+
+
+
+
+
+
+
+

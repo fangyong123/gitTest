@@ -6,7 +6,7 @@ fangyong   980897902@qq.com
 mkdir D:\gitTest
 cd D:\gitTest
 
-$ git config --global user.name "fangyong"   ces∆‡∆‡«–«–
+$ git config --global user.name "fangyong"   xxxx
 $ git config --global user.email "980897902@qq.com"
 
 $ git init
